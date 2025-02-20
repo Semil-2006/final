@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário</title>
+    <script>
+        function toggleSenha(id) {
+            var senhaInput = document.getElementById(id);
+            if (senhaInput.type === "password") {
+                senhaInput.type = "text";
+            } else {
+                senhaInput.type = "password";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Editar Usuário</h1>
+    <form action="{{ url_for('editar_usuario', id=usuario.id) }}" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{ usuario.nome }}" required><br><br>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" value="{{ usuario.idade }}" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" value="{{ usuario.email }}" required><br><br>
+
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" name="numero" value="{{ usuario.numero }}" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" value="{{ usuario.senha }}" required>
+        <button type="button" onclick="toggleSenha('senha')">👁</button><br><br>
+
+        <button type="submit">Salvar Alterações</button>
+        <a href="{{ url_for('index') }}">Cancelar</a>
+    </form>
+</body>
+</html>

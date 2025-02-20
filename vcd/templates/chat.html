@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <h1>Chat</h1>
+    <div id="mensagens"></div>
+
+    <input type="text" id="mensagem" placeholder="Digite sua mensagem">
+    <button onclick="enviarMensagem()">Enviar</button>
+
+    <script>
+        var socket = io();
+        var usuario = getCookie("tipo_usuario");
+
+        function enviarMensagem() {
+            var msg = document.getElementById("mensagem").value;
+            if (msg.trim() !== "") {
+                socket.emit("mensagem", { usuario: usuario, mensagem: msg });
+                document.getElementById("mensagem").value = "";
+            }
+        }
+
+        socket.on("nova_mensagem", function(data) {
+            var div = document.createElement("div");
+            div.textContent = data.usuario + ": " + data.texto;
+            document.getElementById("mensagens").appendChild(div);
+        });
+
+        function getCookie(nome) {
+            var nomeEQ = nome + "=";
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var c = cookies[i].trim();
+                if (c.indexOf(nomeEQ) == 0) return c.substring(nomeEQ.length, c.length);
+            }
+            return null;
+        }
+
+        window.onload = function() {
+            if (usuario === "admin") {
+                {% for msg in mensagens %}
+                    var div = document.createElement("div");
+                    div.textContent = "{{ msg.usuario }}: {{ msg.texto }}";
+                    document.getElementById("mensagens").appendChild(div);
+                {% endfor %}
+            }
+        };
+    </script>
+
+</body>
+</html>
