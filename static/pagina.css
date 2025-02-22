@@ -1,0 +1,206 @@
+/* Estilos para a Página Principal */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Corpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #494953, #3a3a5b);
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #252538;
+    color: #f4f4f4;
+    width: 100%; /* O cabeçalho ocupa toda a largura da tela */
+    box-sizing: border-box; /* Inclui o padding no cálculo da largura total */
+    padding: 10px 40px; /* Espaçamento interno */
+    position: fixed; /* Cabeçalho fixo no topo */
+    top: 0; /* Fica no topo da página */
+    left: 0; /* Fica no lado esquerdo da página */
+    z-index: 10; /* Garante que o cabeçalho esteja acima de outros elementos */
+    
+}
+
+/* Estilo da navegação dentro do cabeçalho */
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+/* Estilo para o menu (itens da lista) */
+nav > ul {
+    display: flex;
+    flex-direction: row; /* Links dispostos na horizontal */
+    list-style: none;
+    padding: 0; /* Remove o padding */
+}
+
+nav > ul > li {
+    margin: 0 15px; /* Espaço entre os itens de navegação */
+}
+
+nav ul li a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: #4e92f6;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Estilo do título dentro do cabeçalho */
+nav h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    color: #4e92f6;
+}
+
+
+
+
+/* Estilo do conteúdo principal */
+main {
+    padding: 100px 20px 20px;
+    text-align: center;
+}
+
+/* Estilo das seções */
+section {
+    margin: 50px auto;
+    max-width: 1200px;
+    background-color: #0c1724;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(108, 239, 254, 0.311);
+}
+
+section h2 {
+    color: #4e92f6;
+}
+
+section p {
+    color: #cccccc;
+}
+
+#contato {
+    color: #f4f4f4;
+    text-decoration: none;
+}
+
+.btn {
+    color: #4e92f6;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #4e92f6;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #4e92f6;
+    color: #fff;
+}
+
+/* Estilo para os botões de login e cadastro */
+.auth-buttons a {
+    color: #4e92f6;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #4e92f6;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.auth-buttons a:hover {
+    background-color: #4e92f6;
+    color: #fff;
+}
+
+/* Links de contato */
+#contato a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#contato a:hover {
+    color: #4e92f6;
+}
+
+/* Responsividade */
+@media(max-width: 768px) {
+    /* Ajustes para telas menores */
+    header {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    nav ul {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav  h1 {
+        font-size: 25px;
+    }
+
+    .auth-buttons {
+        margin-top: 10px;
+        display: flex;
+        justify-content: right;
+    }
+
+    .auth-buttons a {
+        font-size: 1rem;
+        margin: 5px;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    section {
+        margin: 20px 0;
+        padding: 15px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+
+    #contato a {
+        font-size: 1rem;
+    }
+}
